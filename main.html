@@ -1,37 +1,34 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
+	<meta charset=utf-8 />
+		<style type="text/css">
+			body {margin: 30px;}
+		</style> 
 	<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
-<form id="form" onsubmit="takevalue()">
-	<label for="fn">First Name</label>
-	<input type="text" id="fn" required><br>
-	<label for="ln">Last Name</label>
-	<input type="text" id="ln" required><br>
-	<label for="pn">Phone Number</label>
-	<input type="number" id="pn" required><br>
-	<label for="mail">Email ID</label>
-	<input type="email" id="mail" required><br>
-	<button>Submit</button>
-</form>
-</body>
-
+	<form id="form1" onsubmit="getFormvalue()">
+		First Name: <input type="text" name="First Name"><br>
+		Last Name: <input type="text" name="Last Name"><br>
+		Phone Number: <input type="text" name="Phone Number"><br>
+		Email ID: <input type="text" name="Email ID"><br>
+		<input type="submit" value="Submit">
+	</form>
 	<script>
-	function takevalue(){
-		var fn=document.getElementById("fn").value;
-		var ln=document.getElementById("ln").value;
-		var pn=document.getElementById("pn").value;
-		var mail=document.getElementById("mail").value;
-		document.write("First Name: "+ fn +" Last Name: " +ln +" Phone Number: "+ pn+" Email ID: "+mail);
-	}
+		function getFormvalue() {
+			var x=document.getElementById("form1");
+			console.log(x);
+			let form_info = ""
+			for (var i=0;i<x.length;i++) {
+				if (x.elements[i].value!='Submit') {
+					form_info += x.elements[i].name + ": " + x.elements[i].value + "\n"
+				}
+			}
+			alert(form_info.substring(0,form_info.length-1))
+		}
 	</script>
-
-
+    <!-- <script type="text/javascript" src="./script.js"> -->
+</script>
+</body>
 </html>
